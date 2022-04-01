@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login_with_samsung_account</title>
+    <title>Signup_Login</title>
     <link rel="stylesheet" href="signup.css">
+    <style>
+    </style>
 </head>
 
 <body>
@@ -15,13 +17,13 @@
             <a href="index.html"><img style="margin-left:10%; width:250px" src="https://account.samsung.com/accounts/v1/resources/one-ui/images/svg/txt_logo.svg" alt=""></a>
         </div>
           <div id="center">
-             <p>Sign in to your Samsung Account</p>
+             <p>Create account Enter Phone or Gmail</p>
           <div id="input">
-                <input id="email" type="text" placeholder="Email or phone number" />
-                <input id="pass" type="text" placeholder="Password" />
+                <input id="email" type="email" placeholder="Email or phone number" />
+                <input id="password" type="password" placeholder="Password" />
                 <p style="font-size:16px; color: rgb(87, 85, 85); text-align: left;margin-top: -10px;">Remember my ID
                 </p>
-                <button onclick="check()" id="sign">  Sign in</button>
+                <button onclick="signip()" id="sign">  SignUp here</button>
                
                <div id="reset">
                     <a style="margin-right: 10px;" href="">Find Id</a><p style="margin-right: 10px;">or</p><a href="">Reset Password</a>
@@ -61,22 +63,22 @@
 
 </html>
 <script>
-var from_local=JSON.parse(localStorage.getItem("user_cred"));
-console.log(from_local)
-
-function check(){
-var ema=document.querySelector("#email").value;
-var pass=document.querySelector("#pass").value;
-var count=0;
-  for(var i=0;i<from_local.length;++i){
-      if(from_local[i].email==ema&&from_local[i].password==pass){
-          alert("logged In.")
-          window.location.href="index.html";
-          ++count;
-      }
-  }
-if(count<=0){
-    alert("wrong ! User credentials")
-}
+    var from_local=JSON.parse(localStorage.getItem("user_cred"))
+    
+    if(from_local==null){
+        var user_crede=[]
+    }else{
+        user_crede=from_local;
+    }
+function signip(){
+var email=document.querySelector("#email").value;
+var pass=document.querySelector("#password").value;
+var obj={
+    email:email,
+    password:pass,
+} 
+user_crede.push(obj);
+localStorage.setItem("user_cred",JSON.stringify(user_crede))
+alert("Accout suscessfully created")
 }
 </script>

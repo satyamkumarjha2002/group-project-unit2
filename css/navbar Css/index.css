@@ -341,6 +341,7 @@ color: red;
     border-radius: 20px;
 }
 #image-cursol>img:hover{
+    transition: 0.5s;
     cursor: pointer;
     transform: scale(1.05);
 }
