@@ -92,6 +92,9 @@ function myfun(data){
         p2.append(st)
         btn=document.createElement("button");
         btn.textContent="Buy Now"
+        btn.addEventListener("click",function(){
+          clicked(ele);
+        })
         br3=document.createElement("p");
         box.append(image,p1,p2,best,cash,btn,br3)
         box.style.boxShadow="rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px";
@@ -154,13 +157,15 @@ obj2.map(function(ele){
   })
   div.append(img,btn,stp,ptag,ptag2)
   document.querySelector("#refrigarator").append(div)
-  console.log(img)
+ 
 })
+var cart_data=JSON.parse(localStorage.getItem("cart_ele"))||[];
 function clicked(ele){
   event.preventDefault();
   cart_data.push(ele)
  localStorage.setItem("cart_ele",JSON.stringify(cart_data))
  alert("Item add in Cart")
- window.location.href="cart.html";
+ //window.location.href="cart.html";
 }
+
 // Refrigaerator end
