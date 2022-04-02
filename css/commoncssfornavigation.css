@@ -54,6 +54,8 @@ a{
     cursor: pointer;
     transform: scale(1.05);
     transition: 0.3s;
+    /* transform: scale(1);
+    transition: 0.3s; */
 }
 #logic{
     width: 98%;
